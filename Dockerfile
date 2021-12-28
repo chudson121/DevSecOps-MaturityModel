@@ -16,7 +16,7 @@ WORKDIR /app
 RUN pip install pyyaml 
 RUN python3 ./scripts/merge-dimensions.py
 
-FROM php:8.0.3-apache
+FROM php:8.1.0RC4-apache
 RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install apt-utils libyaml-dev wget
 RUN docker-php-ext-install gettext
 RUN pecl channel-update pecl.php.net && pecl install yaml-2.2.1 && docker-php-ext-enable yaml
