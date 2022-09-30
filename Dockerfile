@@ -8,7 +8,7 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
 
-FROM php:apache-buster
+FROM php:8-apache-buster
 RUN apt-get update && apt-get -y dist-upgrade && apt-get -y install apt-utils libyaml-dev wget
 RUN pecl channel-update pecl.php.net && pecl install yaml && docker-php-ext-enable yaml
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
